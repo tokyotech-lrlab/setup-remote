@@ -20,7 +20,7 @@
    $ source ~/.bashrc
    ```
 
-4. Install useful commandline tools (fzf)
+4. Install useful command line tools (fzf, eza, bat, dust)
    ```
    $ bash setup-remote/install_useful_tools.sh
    ```

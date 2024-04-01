@@ -39,6 +39,14 @@ if !(type exa >/dev/null 2>&1); then
 # exa colors
 export EXA_COLORS="uu=37:da=38;5;081"
 ' >>~/.bashrc
+
+    echo '
+# exa
+alias exa="exa --icons -s ext"
+alias ll='exa -hl'
+alias lt='ll -T -L 1'
+alias lt2='ll -T -L 2'
+' >>~/.bash_aliases
 fi
 echo "===============> Done!!"
 

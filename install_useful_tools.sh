@@ -30,22 +30,22 @@ if !(type fzf >/dev/null 2>&1); then
 fi
 echo "===============> Done!!"
 
-# exa
-echo "Install exa ==========>"
-if !(type exa >/dev/null 2>&1); then
-    brew install exa
+# eza
+echo "Install eza ==========>"
+if !(type eza >/dev/null 2>&1); then
+    brew install eza
 
     echo '
-# exa colors
-export exa_COLORS="uu=37:da=38;5;081"
+# eza colors
+export eza_COLORS="uu=37:da=38;5;081"
 ' >>~/.bashrc
 
     echo '
-# exa
-alias exa="exa --icons -s ext"
-alias ll='exa -hl'
-alias lt='ll -T -L 1'
-alias lt2='ll -T -L 2'
+# eza
+alias eza="eza --icons -s ext"
+alias ll="eza -hl"
+alias lt="ll -T -L 1"
+alias lt2="ll -T -L 2"
 ' >>~/.bash_aliases
 fi
 echo "===============> Done!!"

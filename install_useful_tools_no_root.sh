@@ -10,7 +10,7 @@ CUR_DIR=$(
 bash $CUR_DIR/install_linuxbrew.sh
 
 # reload bash
-exec -l $SHELL
+source ~/.bashrc
 
 # check linuxbrew
 if !(type brew > /dev/null 2>&1); then
@@ -57,4 +57,4 @@ fi
 echo "===============> Done!!"
 
 # reload bash
-exec -l $SHELL
+source ~/.bashrc

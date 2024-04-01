@@ -96,3 +96,5 @@ cat ~/.ssh/id_ed25519.pub
 echo visit https://github.com/settings/ssh/new to add this ssh-key
 
 echo "=========================> Done!!"
+
+source ~/.bashrc

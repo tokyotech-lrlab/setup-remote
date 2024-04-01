@@ -97,4 +97,6 @@ echo visit https://github.com/settings/ssh/new to add this ssh-key
 
 echo "=========================> Done!!"
 
-source ~/.bashrc
+echo "Reload bash with following command:
+$ source ~/.bashrc
+"

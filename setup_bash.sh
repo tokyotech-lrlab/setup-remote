@@ -64,12 +64,13 @@ if !(type conda > /dev/null 2>&1); then
    pyenv install $CONDA_VERSION
 
 else
-   echo "anaconda is already installed."
+   CONDA_VERSION=$(ls -1 ~/.pyenv/versions | head -n1)
+   echo "$CONDA_VERSION is already installed."
 fi
 
 echo "
 # anaconda
-export CONDA_PATH=${HOME}/.pyenv/versions/${CONDA_VERSION}
+export CONDA_PATH=\${HOME}/.pyenv/versions/${CONDA_VERSION}
 source \${CONDA_PATH}/etc/profile.d/conda.sh
 export PATH=\"\$CONDA_PATH/bin:\$PATH\"" >>~/.bashrc
 

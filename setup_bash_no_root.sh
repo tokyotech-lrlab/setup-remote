@@ -44,11 +44,12 @@ CUR_DIR="$(
    pwd
 )"
 
-if [ ! -f ~/.bashrc ]; then
+if [ -f ~/.bashrc ]; then
    mv ~/.bashrc ~/.bashrc.old
-   echo "ln -nfs $CUR_DIR/files/.bashrc ~/"
-   ln -nfs $CUR_DIR/files/.bashrc ~/
 fi
+
+echo "ln -nfs $CUR_DIR/files/.bashrc ~/"
+ln -nfs $CUR_DIR/files/.bashrc ~/
 
 if [ ! -f ~/.tmux.conf ]; then
    echo "ln -nfs $CUR_DIR/files/.tmux.conf ~/"

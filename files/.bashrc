@@ -117,6 +117,3 @@ fi
 
 # cuda path
 export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
-
-# exa colors
-export EXA_COLORS="uu=37:da=38;5;081"

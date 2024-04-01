@@ -117,15 +117,3 @@ fi
 
 # cuda path
 export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
-
-# ls after cd
-cdls() {
-    if (type lt >/dev/null 2>&1); then
-        \cd "$@" && lt $(pwd)
-    else
-        \cd "$@" && ls -l $(pwd)
-    fi
-}
-alias cd="cdls"
-
-cd .

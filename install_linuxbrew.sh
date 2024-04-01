@@ -2,7 +2,7 @@
 
 echo "Install Linuxbrew ==========>"
 
-if [ -z "$(which brew)" ]; then
+if !(type brew > /dev/null 2>&1); then
 
    if [ ! -d ~/.linuxbrew ]; then
       echo "Install Linuxbrew from source"
@@ -17,6 +17,15 @@ else
 
    echo "Linuxbrew is already installed."
 
+fi
+
+echo 'export PATH="${HOME}/.linuxbrew/bin:$PATH"' >>~/.bashrc
+source ~/.bashrc
+
+# check linuxbrew
+if !(type brew > /dev/null 2>&1); then
+   echo "Some problems have occured"
+   exit 1
 fi
 
 echo "====================> Done!!"

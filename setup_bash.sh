@@ -39,18 +39,18 @@ if !(type pyenv > /dev/null 2>&1); then
    # install from source
    git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 
-   # add path to .bashrc
-   echo '
+else
+   echo "pyenv is already installed."
+fi
+
+# add path to .bashrc
+echo '
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"' >>~/.bashrc
 
-   source ~/.bashrc
-
-else
-   echo "pyenv is already installed."
-fi
+source ~/.bashrc
 
 echo "====================> Done!!"
 
@@ -63,14 +63,15 @@ if !(type conda > /dev/null 2>&1); then
    echo Install $CONDA_VERSION
    pyenv install $CONDA_VERSION
 
-   echo "
-   # anaconda
-   export CONDA_PATH=${HOME}/.pyenv/versions/${CONDA_VERSION}
-   source \${CONDA_PATH}/etc/profile.d/conda.sh
-   export PATH=\"\$CONDA_PATH/bin:\$PATH\"" >>~/.bashrc
 else
    echo "anaconda is already installed."
 fi
+
+echo "
+# anaconda
+export CONDA_PATH=${HOME}/.pyenv/versions/${CONDA_VERSION}
+source \${CONDA_PATH}/etc/profile.d/conda.sh
+export PATH=\"\$CONDA_PATH/bin:\$PATH\"" >>~/.bashrc
 
 echo "===================> Done!!"
 

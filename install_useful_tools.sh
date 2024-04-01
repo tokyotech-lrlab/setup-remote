@@ -37,7 +37,7 @@ if !(type exa >/dev/null 2>&1); then
 
     echo '
 # exa colors
-export EXA_COLORS="uu=37:da=38;5;081"
+export exa_COLORS="uu=37:da=38;5;081"
 ' >>~/.bashrc
 
     echo '

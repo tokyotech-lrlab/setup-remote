@@ -1,16 +1,20 @@
 # setup_bash_no_root.sh
 
-USERNAME=$(whoami)
-
 # linuxbrew
 
 echo "########## Install Linuxbrew ##########"
 
-git clone https://github.com/Homebrew/brew homebrew
+if [ -z "$(which brew)" ]; then
 
-eval "$(homebrew/bin/brew shellenv)"
-brew update --force --quiet
-chmod -R go-w "$(brew --prefix)/share/zsh"
+   if [ ! -d ~/.linuxbrew ]; then
+      echo "Install Linuxbrew from source"
+      git clone https://github.com/Homebrew/brew ~/.linuxbrew
+   fi
+
+   eval "$(~/.linuxbrew/bin/brew shellenv)"
+   brew update --force --quiet
+   chmod -R go-w "$(brew --prefix)/share/zsh"
+fi
 
 # pyenv
 

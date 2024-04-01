@@ -123,7 +123,7 @@ cdls() {
     if (type lt >/dev/null 2>&1); then
         \cd "$@" && lt $(pwd)
     else
-        \cd "$@" && ll $(pwd)
+        \cd "$@" && ls -l $(pwd)
     fi
 }
 alias cd="cdls"

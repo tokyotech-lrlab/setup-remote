@@ -41,11 +41,8 @@ if !(type conda > /dev/null 2>&1); then
    bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
    rm -rf ~/miniconda3/miniconda.sh
    ~/miniconda3/bin/conda init bash
+   ~/miniconda3/bin/conda config --set auto_activate_base False
 fi
-
-source ~/.bashrc
-conda config --set auto_activate_base False
-source ~/.bashrc
 
 echo "===================> Done!!"
 

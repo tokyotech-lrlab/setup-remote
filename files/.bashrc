@@ -114,6 +114,3 @@ if ! shopt -oq posix; then
         . /etc/bash_completion
     fi
 fi
-
-# cuda path
-export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}

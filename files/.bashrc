@@ -114,3 +114,5 @@ if ! shopt -oq posix; then
         . /etc/bash_completion
     fi
 fi
+
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"

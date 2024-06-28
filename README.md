@@ -8,9 +8,9 @@
    git clone https://github.com/tokyotech-lrlab/setup-remote.git
    ```
 
-2. Setup base packages (pyenv, conda, ssh-key for github)
+2. Setup base packages (miniconda, ssh-key for github)
    ```
-   bash setup-remote/setup_bash.sh
+   bash setup-remote/setup_bash_with_miniconda.sh
    source ~/.bashrc
    ```
 3. Install linuxbrew

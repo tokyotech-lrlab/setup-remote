@@ -40,13 +40,6 @@ if !(type eza >/dev/null 2>&1); then
 export eza_COLORS="uu=37:da=38;5;081"
 ' >>~/.bashrc
 
-    echo '
-# eza
-alias eza="eza --icons -s ext"
-alias ll="eza -hl"
-alias lt="ll -T -L 1"
-alias lt2="ll -T -L 2"
-' >>~/.bash_aliases
 fi
 echo "===============> Done!!"
 

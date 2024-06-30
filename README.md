@@ -8,6 +8,41 @@ This repository contains scripts for setting up a remote server for research pur
   - [Tmux](#tmux-terminal-multiplexer)
   - [fzf](#fzf)
 
+## (Basic) SSH Key Setup
+
+1. Generate a new SSH key if you don't have one (@LOCAL MACHINE)
+
+   ```
+   ssh-keygen -t ed25519 -C ""  # Enter a passphrase if you want
+   cat ~/.ssh/id_ed25519.pub  # Copy the public key
+   ```
+
+2. Copy the public key to the remote server (@REMOTE MACHINE)
+
+   ```
+   mkdir -p ~/.ssh
+   chmod 700 ~/.ssh
+   echo '{public key}' >> ~/.ssh/authorized_keys"
+   chmod 600 ~/.ssh/authorized_keys
+   exit
+   ```
+
+3. Add following SSH config to `~/.ssh/config` (@LOCAL MACHINE)
+
+   ```
+   Host {Hostname (Nickname)}
+       HostName {IPAddress or DomainName}
+       User {Username}
+       ForwardAgent yes
+       IdentityFile ~/.ssh/id_ed25519
+   ```
+
+4. Test to login without password
+
+   ```
+   ssh {hostname}
+   ```
+
 ## Setup
 
 1. Clone this repository

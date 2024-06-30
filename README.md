@@ -2,13 +2,18 @@
 
 This repository contains scripts for setting up a remote server for research purpose. The scripts install essential packages and useful tools for NLP research, such as miniconda, linuxbrew, and fzf.
 
+- [SSH Key Setup](#basic-ssh-key-setup)
 - [Setup](#setup)
-- [Usage](#usage)
+- [Usages](#usages)
   - [Python Environment](#python-environment)
-  - [Tmux](#tmux-terminal-multiplexer)
-  - [fzf](#fzf)
+  - [Tmux (terminal multiplexer)](#tmux-terminal-multiplexer)
+  - [Useful command-line tools](#useful-command-line-tools)
+    - [fzf](#fzf)
+    - [eza](#eza)
+    - [bat](#bat)
+    - [dust](#dust)
 
-## (Basic) SSH Key Setup
+## SSH Key Setup
 
 1. Generate a new SSH key if you don't have one (@LOCAL MACHINE)
 
@@ -43,7 +48,7 @@ This repository contains scripts for setting up a remote server for research pur
    ssh {hostname}
    ```
 
-## Setup
+## Setup Scripts
 
 1. Clone this repository
 
@@ -76,31 +81,31 @@ This repository contains scripts for setting up a remote server for research pur
 
 ### Python Environment
 
-1. Simple usage (venv)
+Option-1: Simple usage (venv)
 
-   ```
-   # Create a new python environment
-   cd ~/{project directory}
-   python -m venv myenv
-   source myenv/bin/activate
+```
+# Create a new python environment
+cd ~/{project directory}
+python -m venv myenv
+source myenv/bin/activate
 
-   # Install packages
-   pip install {packages}=={version}
-   ```
+# Install packages
+pip install {packages}=={version}
+```
 
-2. Use miniconda
+Option-2: Use miniconda (if you want to switch python versions or use conda packages)
 
-   ```
-   # Create a new python environment
-   conda create -n myenv python=3.12
-   conda activate myenv
+```
+# Create a new python environment
+conda create -n myenv python=3.12
+conda activate myenv
 
-   # Install packages with pip (basically using pip only)
-   pip install {packages}=={version}
+# Install packages with pip (basically using pip only)
+pip install {packages}=={version}
 
-   # Use conda to install if install with pip doesn't work
-   conda install -c conda-forge faiss-gpu # for example
-   ```
+# Use conda to install if install with pip doesn't work
+conda install -c conda-forge faiss-gpu # for example
+```
 
 ### Tmux (terminal multiplexer)
 
@@ -142,7 +147,11 @@ See docs: https://github.com/tmux/tmux/wiki/Getting-Started
   {prefix} + s  # List all sessions and select one to attach
   ```
 
-### fzf
+### Useful command-line tools
+
+Install by running `install_useful_tools.sh`
+
+#### fzf
 
 fzf is a general-purpose command-line fuzzy finder. It is useful for searching file/directory, logs, and command history.
 
@@ -160,35 +169,68 @@ fzf is a general-purpose command-line fuzzy finder. It is useful for searching f
 
   ```
   amaekawa@gpu01:~/dataset-distillation-with-summarization(develop*)$ (CTRL + r)
-   ╭─────────────────────────────────────────────────────────────────────╮
-   │ > conda                                                             │
-   │   365/2133 +S ───────────────────────────────────────────────────── │
-   │ > 4893    conda activate DatasetDistillation                       ││
-   │   4475    conda deactivate                                          │
-   │   4473    conda activate RSTParsingWithLLM                          │
-   │   4320    conda activate                                            │
-   │   3506    conda install -c conda-forge faiss-gpu                    │
-   │   3391    conda install -c pytorch -c nvidia faiss-gpu=1.8.0        │
-   │   3383    conda --version                                           │
-   │   3104    which conda                                               │
-   │   3094    conda install python=3.10                                 │
-   │   3093    conda activate base                                       │
-   ╰─────────────────────────────────────────────────────────────────────╯
+   ╭───────────────────────────────────────────────────────────────────────────╮
+   │ > conda                                                                   │
+   │   365/2133 +S ─────────────────────────────────────────────────────────── │
+   │ > 4893    conda activate DatasetDistillation                              │
+   │   4475    conda deactivate                                                │
+   │   4473    conda activate RSTParsingWithLLM                                │
+   │   4320    conda activate                                                  │
+   │   3506    conda install -c conda-forge faiss-gpu                          │
+   │   3391    conda install -c pytorch -c nvidia faiss-gpu=1.8.0              │
+   │   3383    conda --version                                                 │
+   │   3104    which conda                                                     │
+   │   3094    conda install python=3.10                                       │
+   │   3093    conda activate base                                             │
+   ╰───────────────────────────────────────────────────────────────────────────╯
   ```
 
 - Search files with `fzf` or `CTRL + t` (default keybinding).
 
   ```
   amaekawa@gpu01:~/dataset-distillation-with-summarization(develop*)$ (CTRL + t)
-   ╭─────────────────────────────────────────────────────────────────────────╮
-   │ > dataset                                                               │
-   │   52/4263 ───────────────────────────────────────────────────────────── │
-   │ > src/data/dataset.py                                                  ││
-   │   src/data/__pycache__/dataset.cpython-310.pyc                         ││
-   │   src/data/raw_dataset.py                                              ││
-   │   src/preprocess_dataset.py                                            ││
-   │   src/generate_dataset.py                                          ││
-   │   src/generate_dataset_parallel.py                             ││
-   │   src/data/__pycache__/raw_dataset.cpython-310.pyc                      │
-   ╰─────────────────────────────────────────────────────────────────────────╯
+   ╭───────────────────────────────────────────────────────────────────────────╮
+   │ > dataset                                                                 │
+   │   52/4263 ─────────────────────────────────────────────────────────────── │
+   │ > src/data/dataset.py                                                     │
+   │   src/data/__pycache__/dataset.cpython-310.pyc                            │
+   │   src/data/raw_dataset.py                                                 │
+   │   src/preprocess_dataset.py                                               │
+   │   src/generate_dataset.py                                                 │
+   │   src/generate_dataset_parallel.py                                        │
+   │   src/data/__pycache__/raw_dataset.cpython-310.pyc                        │
+   ╰───────────────────────────────────────────────────────────────────────────╯
+  ```
+
+#### eza
+
+eza is a modern, maintained replacement for the venerable file-listing command-line program `ls`.
+
+- Example usages (see aliases in `files/.bash_aliases`)
+
+  | Command            | Description                                                  |
+  | ------------------ | ------------------------------------------------------------ |
+  | `ll`,              | List files in directory (alternative to `ls -l`)             |
+  | `la`               | List all files in directory (alternative to `ls -a`)         |
+  | `lt`, `lt2`, `lt3` | List files in directory recursively (alternative to `ls -R`) |
+
+#### bat
+
+bat is a modern replacement for `cat` command. It provides syntax highlighting and git integration.
+
+- Example usages (use instead of `cat` command)
+
+  ```
+  bat {filename}
+  ```
+
+#### dust
+
+dust is a more intuitive version of `du` command. It provides a tree-like view of disk usage.
+
+- Example usages
+
+  ```
+  dust .  # Show disk usage of the current directory
+  dust -d 1 {dir path}  # Show disk usage with depth 1
   ```

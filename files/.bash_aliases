@@ -13,6 +13,8 @@ alias gc='git commit --verbose'
 if (type conda >/dev/null 2>&1); then
     alias eza="eza --icons -s ext"
     alias ll="eza -hl"
-    alias lt="ll -T -L 1"
-    alias lt2="ll -T -L 2"
+    alias la="ll -a"
+    alias lt="ll -T -L 1 $(pwd)"
+    alias lt2="ll -T -L 2 $(pwd)"
+    alias lt3="ll -T -L 2 $(pwd)"
 fi

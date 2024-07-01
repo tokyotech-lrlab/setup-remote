@@ -3,7 +3,7 @@
 This repository contains scripts for setting up a remote server for research purpose. The scripts install essential packages and useful tools for NLP research, such as miniconda, linuxbrew, and fzf.
 
 - [SSH Key Setup](#basic-ssh-key-setup)
-- [Setup](#setup)
+- [Setup Scripts](#setup-scripts)
 - [Usages](#usages)
   - [Python Environment](#python-environment)
   - [Tmux (terminal multiplexer)](#tmux-terminal-multiplexer)
@@ -111,18 +111,18 @@ conda install -c conda-forge faiss-gpu # for example
 
 See docs: https://github.com/tmux/tmux/wiki/Getting-Started
 
-- Essential usages (using original aliases see `files/.bash_aliases`):
+- Essential usages (using customized aliases in `files/.bash_aliases`):
 
   ```
-  # Create a new session (`tmux new-session`)
+  # Create a new session
   cd ~/{project directory}
-  tn
+  tn  # alias for `tmux new-session`
 
-  # See all sessions (`tmux list-sessions`)
-  tl
+  # See all sessions
+  tl  # alias for `tmux list-sessions`
 
-  # Attach to a session (`tmux attach-session`)
-  ta -t {session name or number}
+  # Attach to a session
+  ta -t {session name or number}  # alias for `tmux attach-session`
   ```
 
 - Command for tmux (default prefix is `Ctrl + b`):

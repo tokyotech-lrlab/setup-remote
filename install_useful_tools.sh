@@ -1,3 +1,4 @@
+#!/bin/bash
 # Description: Install useful tools with linuxbrew
 
 # linuxbrew
@@ -13,7 +14,7 @@ bash $CUR_DIR/install_linuxbrew.sh
 source ~/.bashrc
 
 # check linuxbrew
-if !(type brew > /dev/null 2>&1); then
+if ! (type brew >/dev/null 2>&1); then
     echo "Some problems have occured when installing linuxbrew."
     exit 1
 fi
@@ -22,7 +23,7 @@ fi
 
 echo "Install fzf ==========>"
 
-if !(type fzf >/dev/null 2>&1); then
+if ! (type fzf >/dev/null 2>&1); then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
 
@@ -32,7 +33,7 @@ echo "===============> Done!!"
 
 # eza
 echo "Install eza ==========>"
-if !(type eza >/dev/null 2>&1); then
+if ! (type eza >/dev/null 2>&1); then
     brew install eza
 
     echo '
@@ -45,14 +46,14 @@ echo "===============> Done!!"
 
 # bat
 echo "Install bat ==========>"
-if !(type bat >/dev/null 2>&1); then
+if ! (type bat >/dev/null 2>&1); then
     brew install bat
 fi
 echo "===============> Done!!"
 
 # dust
 echo "Install dust ==========>"
-if !(type dust >/dev/null 2>&1); then
+if ! (type dust >/dev/null 2>&1); then
     brew install dust
 fi
 echo "===============> Done!!"
@@ -62,7 +63,7 @@ echo '
 # ls after cd
 cdls() {
     if (type lt >/dev/null 2>&1); then
-        \cd "$@" && lt $(pwd)
+        \cd "$@" && lt
     else
         \cd "$@" && ls -l $(pwd)
     fi

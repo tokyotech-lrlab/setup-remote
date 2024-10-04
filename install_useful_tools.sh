@@ -62,10 +62,10 @@ echo "===============> Done!!"
 echo '
 # ls after cd
 cdls() {
-    if (type lt >/dev/null 2>&1); then
-        \cd "$@" && lt
+    if (type eza >/dev/null 2>&1); then
+        \cd "$@" && eza -hl -T -L 1 $(pwd)/
     else
-        \cd "$@" && ls -l $(pwd)
+        \cd "$@" && ls -l $(pwd)/
     fi
 }
 alias cd="cdls"
